@@ -20,7 +20,8 @@ sub UNIVERSAL::can {
         next unless exists &{"$search\::AUTOLOAD"};
         my $code = "package $search;".
           'sub { our $AUTOLOAD = "$class\::$want"; goto &AUTOLOAD }';
-        return eval $code or die "compiling '$code': $@";
+        my $sub = eval $code or die "compiling '$code': $@";
+        return $sub;
     }
 
     # no? give up
