@@ -5,7 +5,8 @@ Module::Build->new(
     module_name => "UNIVERSAL::canAUTOLOAD",
     license     => 'perl',
     requires    => {
-        'Test::More'      => 0,
+        'Test::More' => 0,
+        'Class::ISQ' => 0,
     },
     create_makefile_pl => 'passthrough',
    )
