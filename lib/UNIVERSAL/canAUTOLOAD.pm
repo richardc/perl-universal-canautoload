@@ -8,18 +8,22 @@ sub UNIVERSAL::can {
     my ($referent, $want) = @_;
 
     my $class = ref $referent || $referent;
-    for my $search ( Class::ISA::self_and_super_path( $class ) ) {
+    my @path = ( Class::ISA::self_and_super_path( $class ), 'UNIVERSAL' );
+
+    # first look for a solid method
+    for my $search (@path) {
         return \&{"$search\::$want"} if exists &{"$search\::$want"};
     }
 
-    for my $search ( Class::ISA::self_and_super_path( $class ) ) {
+    # then look for an AUTOLOAD sub
+    for my $search (@path) {
         next unless exists &{"$search\::AUTOLOAD"};
         my $code = "package $search;".
           'sub { our $AUTOLOAD = "$class\::$want"; goto &AUTOLOAD }';
-
         return eval $code or die "compiling '$code': $@";
     }
 
+    # no? give up
     return;
 }
 
