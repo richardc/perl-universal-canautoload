@@ -39,7 +39,6 @@ UNIVERSAL::canAUTOLOAD - installs a UNIVERSAL::can that respects AUTOLOAD subs
 
  use UNIVERSAL::canAUTOLOAD;
 
-
  package MyModule;
 
  sub DESTROY {}
@@ -57,11 +56,14 @@ UNIVERSAL::canAUTOLOAD - installs a UNIVERSAL::can that respects AUTOLOAD subs
 Ever flying in the face of common sense, this module makes a special
 effort to make a section of L<UNIVERSAL/can> false.
 
+For discussion of this need, consult this thread:
+
+http://london.pm.org/pipermail/london.pm/Week-of-Mon-20031020/022190.html
 
 =head1 AUTHOR
 
-Richard Clamp <richardc@unixbeard.net> original need and documentation
-from Mark Fowler.
+Richard Clamp <richardc@unixbeard.net> original need and anticipated
+documentation from Mark Fowler.
 
 =head1 COPYRIGHT
 
