@@ -1,6 +1,8 @@
 #!perl -w
 use strict;
-use Test::More tests => 12;
+use Test::More tests => 13;
+
+BEGIN { use_ok 'UNIVERSAL::canAUTOLOAD' }
 
 my @called;
 package Parent;
@@ -10,7 +12,6 @@ sub upper {
 
 package Can;
 use base 'Parent';
-use Class::AutoloadCan;
 our $AUTOLOAD;
 sub AUTOLOAD {
     push @called, { AUTOLOAD => $AUTOLOAD };
