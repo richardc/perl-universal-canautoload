@@ -24,7 +24,7 @@ sub UNIVERSAL::can {
     }
 
     # no? give up
-    return;
+    return undef;
 }
 
 1;

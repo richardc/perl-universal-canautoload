@@ -1,6 +1,6 @@
 #!perl -w
 use strict;
-use Test::More tests => 13;
+use Test::More tests => 14;
 
 BEGIN { use_ok 'UNIVERSAL::canAUTOLOAD' }
 
@@ -49,3 +49,4 @@ ok( $upper->( 'badger' ), "called upper" );
 
 is_deeply( \@called, [ [ upper => 'badger' ] ], "called the right thing" );
 
+is_deeply( [ Foo->can('bar') ], [ undef ], "compatible version of falsehood" );
