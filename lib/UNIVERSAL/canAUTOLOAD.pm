@@ -49,7 +49,7 @@ UNIVERSAL::canAUTOLOAD - installs a UNIVERSAL::can that respects AUTOLOAD subs
 
  my $object = bless {}, 'MyModule';
  my $method = $object->can( 'potato' ); # returns a true value
- $object->$method;                      # call the AUTOLOADed potato method
+ $object->$method();                    # call the AUTOLOADed potato method
 
 =head1 DESCRIPTION
 
