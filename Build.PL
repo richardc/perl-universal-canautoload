@@ -6,7 +6,7 @@ Module::Build->new(
     license     => 'perl',
     requires    => {
         'Test::More' => 0,
-        'Class::ISQ' => 0,
+        'Class::ISA' => 0,
     },
     create_makefile_pl => 'passthrough',
    )
